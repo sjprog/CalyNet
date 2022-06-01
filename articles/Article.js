@@ -1,7 +1,8 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/database");
+const Category = require("../categories/Category");
 
-const Category = connection.define('categorias', {
+const Article = connection.define('articles', {
     title: {
         type: Sequelize.STRING,
         allowNull: false
@@ -10,9 +11,14 @@ const Category = connection.define('categorias', {
     slug: { 
         type: Sequelize.STRING ,
         allowNull:false
+    },
+    body: {
+        type: Sequelize.TEXT,
+        allowNull: false
     }
-});
+})
 
-Category.sync({ force: true });
 
-module.exports = Category;
+
+
+module.exports = Article; 
